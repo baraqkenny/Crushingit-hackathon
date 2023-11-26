@@ -87,6 +87,11 @@
     gap: 1rem;
 }
 
+.notification__wrapper:focus {
+    border: 2px solid #2980b9;
+    background-color: #2980b9;
+}
+
 .notification__btn{
     display: flex;
     align-items: center;
@@ -105,12 +110,20 @@
 /* Notification Drop Down Styling */
 
 .notification__dropdown__container{
+    display: none;
+    position: relative;
+    left: 69%;
+    margin-top: 0.5rem;
     width: 23rem;
     padding: 1rem;
     border-radius: 0.875rem;
+    background: var(--White);
     border: 1px solid var(--stroke-s-50);
-    z-index: 9;
+    z-index: 1;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+}
+.notification__dropdown__container.active{
+    display: none;
 }
 
 .alert__icon__wrapper{
@@ -187,9 +200,7 @@
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* .account__dropdown__container.active{
-    display: none;
-} */
+
 
 .account__name__dropdown{
     display: flex;
@@ -366,6 +377,11 @@
     cursor: pointer
 }
 
+.arrow__up{
+    transform: rotate(180deg); 
+}
+
+
 .setup__guide__questions{
     margin-top: 1.87rem;
     /* padding: 0.5rem 0.5rem 0.75rem 0.5rem;  */
@@ -399,20 +415,20 @@
     margin-top: 0.5rem;
     margin-left: 0.5rem;
 }
-
-/* .first__guide{
-    display: flex;
+/* .first__guide__wrapper h2.active{
+    display: block;
 } */
 
+.radio__one{
+    margin-left: 0.5rem;
+}
 
 
 .first__guide__content{
     display: none;
 }
 
-.first__guide__content.active{
-    display: block;
-}
+
 
 .first__guide__content h3{
     margin-top: 0.5rem;
@@ -462,25 +478,26 @@
 .second__guide__container{
     display: flex;
     justify-content: space-between;
+    background-color: green;
+    border-radius: 0.625rem;
+    padding: 0.5rem 0.5rem 0.75rem 0.1rem;
 }
 
 .second__guide__wrapper{
     display: flex;
-    
+    justify-content: space-between;
 }
 
-
-.second__guide{
-    display: flex;
-    flex-direction: column;
+.radio__two{
     margin-left: 0.5rem;
 }
 
-.second__guide h2{
+.second__guide__wrapper h2{
     color: var(--font-dark, var(--grey-g-200));
     font-size: 0.8125rem;
     font-weight: 500;
     margin-top: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .second__guide__content{
@@ -494,14 +511,14 @@
     font-weight: 600; 
 }
 
-.second__guide p{
+.second__guide__content p{
     margin-top: 1rem;
     color: var(--font-mid-2);
     font-size: 0.8125rem;
     font-weight: 500;
 }
 
-.second__guide .link{
+.second__guide__content .link{
     margin-top: 0.2rem;
     color: var(--states-focused);
     font-size: 0.875rem;
@@ -546,25 +563,29 @@
 .third__guide__container{
     display: flex;
     justify-content: space-between;
+    background-color: green;
+    border-radius: 0.625rem;
+    padding: 0.5rem 0.5rem 0.75rem 0.1rem;
 }
 
 .third__guide__wrapper{
     display: flex;
-    /* flex-direction: column; */
+    justify-content: space-between;
 }
 
 
-.third__guide{
+/* .third__guide{
     display: flex;
     flex-direction: column;
     margin-left: 0.5rem;
-}
+} */
 
-.third__guide h2{
+.third__guide__wrapper h2{
     color: var(--font-dark, var(--grey-g-200));
     font-size: 0.8125rem;
     font-weight: 500;
     margin-top: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .third__guide__content{
@@ -576,6 +597,10 @@
     color: var(--grey-g-200);
     font-size: 0.8125rem;
     font-weight: 600; 
+}
+
+.radio__three{
+    margin-left: 0.5rem;
 }
 
 .third__guide__content p{
@@ -618,27 +643,28 @@
     /* Fourth Guide Styling */
 
     .fourth__guide__container{
-        display: flex;
-        justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+    border-radius: 0.625rem;
+    padding: 0.5rem 0.5rem 0.75rem 0.1rem;
     }
     
     .fourth__guide__wrapper{
         display: flex;
-        /* flex-direction: column; */
-    }
-    
-    .fourth__guide{
-        display: flex;
-        flex-direction: column;
-        margin-left: 0.5rem;
+        justify-content: space-between;
     }
 
-    .fourth__guide h2{
+    .fourth__guide__wrapper h2{
     color: var(--font-dark, var(--grey-g-200));
     font-size: 0.8125rem;
     font-weight: 500;
     margin-top: 0.5rem;
-    
+    margin-left: 0.5rem;
+    }
+
+    .radio__four{
+        margin-left: 0.5rem;
     }
 
     .fourth__guide__content{
@@ -650,6 +676,7 @@
         color: var(--grey-g-200);
         font-size: 0.8125rem;
         font-weight: 600; 
+        
     }
     
     .fourth__guide__content p{
@@ -690,35 +717,34 @@
 
     /* Fifth Guide Styling */
     .fifth__guide__container{
-        display: flex;
-        justify-content: space-between;
-        /* display: none; */
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+    border-radius: 0.625rem;
+    padding: 0.5rem 0.5rem 0.75rem 0.1rem;
     }
     
     .fifth__guide__wrapper{
         display: flex;
-        /* flex-direction: column; */
+        justify-content: space-between;
     }
     
-    .fifth__guide{
-        display: flex;
-        flex-direction: column;
-        margin-left: 0.5rem;
-    }
 
-    .fifth__guide h2{
+    .fifth__guide__wrapper h2{
     color: var(--font-dark, var(--grey-g-200));
     font-size: 0.8125rem;
     font-weight: 500;
     margin-top: 0.5rem;
-
+    margin-left: 0.5rem;
     }
 
     .fifth__guide__content{
         display: none;
     }
 
-    
+   .radio__five{
+    margin-left: 0.5rem;
+   } 
     
     .fifth__guide__content h3{
         margin-top: 0.5rem;
@@ -773,6 +799,6 @@
     }
 
 
-    .radio{
+    /* .radio{
         margin-left: 0.5rem;
-    }
+    } */
